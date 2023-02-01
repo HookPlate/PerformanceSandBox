@@ -30,12 +30,21 @@ class Debouncer<T>: ObservableObject {
     
 }
 struct ContentView: View {
+    @StateObject private var text = Debouncer(initialValue: "", delay: 0.5)
+    @StateObject private var slider = Debouncer(initialValue: 0.0, delay: 0.1)
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            //modifies the input from our Debouncer text
+            TextField("Search for something", text: $text.input)
+                .textFieldStyle(.roundedBorder)
+            //this displays the output for the text
+            Text(text.output)
+            //nice use of Spacer and formatted()
+            Spacer().frame(height: 50)
+            //wait until I've finished sliding then update
+            Slider(value: $slider.input, in: 0...100)
+            Text(slider.output.formatted())
         }
         .padding()
     }
