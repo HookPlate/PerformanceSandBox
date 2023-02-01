@@ -8,7 +8,7 @@ import Combine
 import SwiftUI
 //this class is generic over some kind of value, could be a string or anything
 class Debouncer<T>: ObservableObject {
-    //it has published properties of both input and output both of which are the same type that came in. If a String comes in, a string goes out.
+    //it has published properties of both input and output both of which are the same type that came in. If a String comes in, a string goes out..
     @Published var input: T
     @Published var output: T
     
