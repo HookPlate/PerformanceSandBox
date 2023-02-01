@@ -23,26 +23,18 @@ class Debouncer<T>: ObservableObject {
                 self?.output = $0
             }
     }
-    
-    
+}
+
+class SaveData: ObservableObject {
+    @Published var highScore = 0
 }
 struct ContentView: View {
-    @StateObject private var text = Debouncer(initialValue: "", delay: 0.5)
-    @StateObject private var slider = Debouncer(initialValue: 0.0, delay: 0.1)
+    @StateObject var saveData = SaveData()
     
     var body: some View {
-        VStack {
-            TextField("Search for something", text: $text.input)
-                .textFieldStyle(.roundedBorder)
-
-            Text(text.output)
-
-            Spacer().frame(height: 50)
-
-            Slider(value: $slider.input, in: 0...100)
-            Text(slider.output.formatted())
+        Button("High Score: \(saveData.highScore )") {
+            saveData.highScore += 1
         }
-        .padding()
     }
 }
 
