@@ -6,8 +6,8 @@
 //
 import Combine
 import Foundation
-
-@dynamicMemberLookup
+//when we have @dynamicMemberLookup we must have our custom subscript so Swift knows to read the wrapped value when access properties on the parent type but when we use propertywrapper that requirement is baked in.
+@propertyWrapper
 
 class DebouncedObservedObject<Wrapped: ObservableObject>: ObservableObject {
     var wrappedValue: Wrapped
@@ -22,9 +22,9 @@ class DebouncedObservedObject<Wrapped: ObservableObject>: ObservableObject {
                 self?.objectWillChange.send()
             }
     }
-
-    subscript<Value>(dynamicMember keypath: ReferenceWritableKeyPath<Wrapped, Value>) -> Value {
-        get {wrappedValue[keyPath: keypath]}
-        set {wrappedValue[keyPath: keypath] = newValue}
-    }
+//depsite commenting out this custom subscript we'll still have on available to us.
+//    subscript<Value>(dynamicMember keypath: ReferenceWritableKeyPath<Wrapped, Value>) -> Value {
+//        get {wrappedValue[keyPath: keypath]}
+//        set {wrappedValue[keyPath: keypath] = newValue}
+//    }
 }

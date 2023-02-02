@@ -29,7 +29,9 @@ class SaveData: ObservableObject {
     @Published var highScore = 0
 }
 struct ContentView: View {
-    @StateObject var saveData = DebouncedObservedObject(wrappedValue: SaveData())
+    //thanks to our @propertyWrapper this code becomes simpler too, this is two property wrappers in one, a nested property wrapper.
+    //@StateObject var saveData = DebouncedObservedObject(wrappedValue: SaveData())
+    @StateObject @DebouncedObservedObject var saveData = SaveData()
     
     var body: some View {
         Button("High Score: \(saveData.highScore )") {
