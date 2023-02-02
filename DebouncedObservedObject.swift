@@ -6,6 +6,7 @@
 //
 import Combine
 import Foundation
+//you cannot debounce an observedobject (our @StateObject saveData() in ContentView) directly, you need to wrap it. This thing knows how to wrap other ObservableObjects (SaveData). So the Wrapped below is for SaveData. Our debouncer has to be ObservableObject to announce to the world 'I have changed' and the thing it's wrapping (SaveData) has to be observable otherwise we couldn't read .objectWillChange for the subscription.
 //when we have @dynamicMemberLookup we must have our custom subscript so Swift knows to read the wrapped value when access properties on the parent type but when we use propertywrapper that requirement is baked in.
 @propertyWrapper
 
