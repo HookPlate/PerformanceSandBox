@@ -32,8 +32,9 @@ struct ContentView: View {
     @StateObject var saveData = DebouncedObservedObject(wrappedValue: SaveData())
     
     var body: some View {
-        Button("High Score: \(saveData.wrappedValue.highScore )") {
-            saveData.wrappedValue.highScore += 1
+        //highScore now appears on our DebouncedObservedObject. It understands that this thing has a highScore property becasue the thing it wraps has a highscore property. This call site made cleaner by dynamicMemberLookup.
+        Button("High Score: \(saveData.highScore )") {
+            saveData.highScore += 1
         }
     }
 }
