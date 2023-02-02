@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1C843DE298B267A00D57E4D /* DebouncedObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C843DD298B267A00D57E4D /* DebouncedObservedObject.swift */; };
 		F1DC01C1298AF6B600D071E7 /* PerformanceSandBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC01C0298AF6B600D071E7 /* PerformanceSandBoxApp.swift */; };
 		F1DC01C3298AF6B600D071E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC01C2298AF6B600D071E7 /* ContentView.swift */; };
 		F1DC01C5298AF6B700D071E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DC01C4298AF6B700D071E7 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1C843DD298B267A00D57E4D /* DebouncedObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncedObservedObject.swift; sourceTree = SOURCE_ROOT; };
 		F1DC01BD298AF6B600D071E7 /* PerformanceSandBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerformanceSandBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DC01C0298AF6B600D071E7 /* PerformanceSandBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceSandBoxApp.swift; sourceTree = "<group>"; };
 		F1DC01C2298AF6B600D071E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		F1DC01BF298AF6B600D071E7 /* PerformanceSandBox */ = {
 			isa = PBXGroup;
 			children = (
+				F1C843DD298B267A00D57E4D /* DebouncedObservedObject.swift */,
 				F1DC01C0298AF6B600D071E7 /* PerformanceSandBoxApp.swift */,
 				F1DC01C2298AF6B600D071E7 /* ContentView.swift */,
 				F1DC01C4298AF6B700D071E7 /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DC01C3298AF6B600D071E7 /* ContentView.swift in Sources */,
+				F1C843DE298B267A00D57E4D /* DebouncedObservedObject.swift in Sources */,
 				F1DC01C1298AF6B600D071E7 /* PerformanceSandBoxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
