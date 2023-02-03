@@ -79,7 +79,8 @@ struct UpdatingView: View {
 }
 
 struct ContentView: View {
-    @StateObject var saveData = SaveData()
+    //the below was very performance heavy, the issue was we were telling SwiftUI to observe an object that we didn’t actually use inside ContentView.
+   // @StateObject var saveData = SaveData()
     
     var body: some View {
         print("In ContentView.body")
@@ -87,7 +88,8 @@ struct ContentView: View {
             DisplayingView()
             UpdatingView()
         }
-        .environmentObject(saveData)
+        //We can get rid of @StateObject because this will keep it alive for as long as this view is alive. We post it into the Environment without observing it, we don't want to know if it's changing or not. We can inject it for our child views to use, without making our own view get reloaded when it posts a change notification
+        .environmentObject(SaveData())
     }
     init() {
         print("In ContentView.init")
