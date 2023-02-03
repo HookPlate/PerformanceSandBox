@@ -54,18 +54,27 @@ struct DisplayingView: View {
     @EnvironmentObject var saveData: SaveData
     
     var body: some View {
-        Text("Your high score is \(saveData.highScore)")
+        print("In DipslayingView.body")
+        return Text("Your high score is \(saveData.highScore)")
+    }
+    
+    init() {
+        print("In DisplayingView.init")
     }
 }
-
+ 
 struct UpdatingView: View {
     @EnvironmentObject var saveData: SaveData
-    
+    //her needs the return to return only one view I think
     var body: some View {
-        Button("Add to high score") {
+        print("In UpdatingView.body")
+        return Button("Add to high score") {
             saveData.highScore += 1
         }
         
+    }
+    init() {
+        print("In UpdatingView.init")
     }
 }
 
@@ -73,11 +82,15 @@ struct ContentView: View {
     @StateObject var saveData = SaveData()
     
     var body: some View {
-        VStack {
+        print("In ContentView.body")
+        return VStack {
             DisplayingView()
             UpdatingView()
         }
         .environmentObject(saveData)
+    }
+    init() {
+        print("In ContentView.init")
     }
 }
 
