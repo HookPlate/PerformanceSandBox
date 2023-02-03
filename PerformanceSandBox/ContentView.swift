@@ -45,6 +45,7 @@ struct UpdatingView: View {
 
 struct ContentView: View {
     //Yes, that’s designed to hold value types rather than reference types, but in this instance it does exactly the same as using environment values rather than environment objects: it holds a reference to the object (keeps it alive), but doesn’t watch it for changes. If you changed teh whole object for a new SaveData() sure it would see that but changing values inside the class won't be seen so it won't reinvoke the body. Just know that we need to use @State now.
+    //incidentally he didn't use private var here because it's clearly not private, he's posting it into the environment.
     @State var saveData = SaveData()
     
     var body: some View {
@@ -56,7 +57,9 @@ struct ContentView: View {
         //so this kind of code wont work anymore, we need to store a reference to it somewhere and inject it from there. See the new @State in ContView above
         //.environmentObject(SaveData())
         //now we send that as both an object and a key into the environment - crucial this bit.
+        //this one wants to read and write and be observed.
         .environmentObject(saveData)
+        //this one want to just write the data. Hence we need both to satisfy both views.
         .environment(\.saveData, saveData)
         
     }
